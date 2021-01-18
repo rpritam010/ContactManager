@@ -15,37 +15,35 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-
 @Entity
 @Table(name = "USER")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@NotBlank(message = "Name field is required !!")
 	@Size(min = 2, max = 20, message = " Min 2 and max 20 characters are allowed !!")
 	private String name;
-	
+
 	@Column(unique = true)
 	private String email;
-	
+
 	private String password;
-	
+
 	private String role;
-	
+
 	private boolean enabled;
-	
+
 	private String imageUrl;
-	
+
 	@Column(length = 500)
 	private String about;
-	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Contact> contacts = new ArrayList<>();
 
-	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -129,8 +127,5 @@ public class User {
 				+ ", enabled=" + enabled + ", imageUrl=" + imageUrl + ", about=" + about + ", contacts=" + contacts
 				+ "]";
 	}
-	
-	
 
-	
 }

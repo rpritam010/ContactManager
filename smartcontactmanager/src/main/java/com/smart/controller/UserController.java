@@ -112,7 +112,7 @@ public class UserController {
 				contact.setImage(file.getOriginalFilename());
 				
 				
-				File saveFile = new ClassPathResource("static/image").getFile();
+				File saveFile = new ClassPathResource("static/img").getFile();
 				
 				Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
 				
@@ -273,7 +273,7 @@ public class UserController {
 				
 				// Delete Old Photo
 				
-				File deleteFile = new ClassPathResource("static/image").getFile();
+				File deleteFile = new ClassPathResource("static/img").getFile();
 				File file1 = new File(deleteFile, oldcontactDetail.getImage());
 				file1.delete();
 				
@@ -282,7 +282,7 @@ public class UserController {
 				// Update New Photo
 				
 				
-				File saveFile = new ClassPathResource("static/image").getFile();
+				File saveFile = new ClassPathResource("static/img").getFile();
 				
 				Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
 				
