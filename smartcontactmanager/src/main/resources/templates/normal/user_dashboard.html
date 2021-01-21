@@ -1,43 +1,54 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
 <head>
-	<meta charset="UTF-8" />
-	<title>this is home page</title>
+<meta charset="UTF-8" />
+<title>this is home page</title>
 </head>
 <body>
-	
-		<section>
-		
-				<div class="container">
-				
-					<div class="card">
-					
-						<div class="card-body my-5">
-						
-							<div class="container text-center">
-							
-								<img src="" style="height: 175px; width: 175px;"
-										class="my_profile_picture" th:src="@{'/img/contact_logo.png'}"
-										alt="profile photo" />
-						
-							</div>
-							
-								<h1 class="class text-center mt-5 text-secondary font-italic font-weight-light"> 
-						
-									Start Adding Your Contact On Cloud...
-						
-							   </h1>
-						
-							  <a th:href="@{/user/add-contact}" class="btn btn-primary mt-5 btn-block text-upercase">Add New Contact</a>
-							
-						</div>
-						
+
+	<section>
+
+		<div class="container">
+
+			<div class="card">
+
+				<div class="card-body my-5">
+
+					<div class="container text-center">
+
+						<img src="" style="height: 175px; width: 175px;"
+							class="my_profile_picture" th:src="@{'/img/contact_logo.png'}"
+							alt="profile photo" />
+
 					</div>
-				
+
+					<h1
+						class="class text-center mt-5 text-secondary font-italic font-weight-light">
+
+						Start Adding Your Contact On Cloud...</h1>
+
+					<a th:href="@{/user/add-contact}"
+						class="btn btn-primary mt-5 btn-block text-upercase">Add New
+						Contact</a>
+
 				</div>
-		
-		</section>
-	
-	
+
+			</div>
+
+		</div>
+
+		<script>
+				$(document).ready(() => {
+					(".item").removeClass('active');
+
+					$("#home-link").addClass("active");
+				});
+				
+				</script>
+
+	</section>
+
+
 </body>
 </html>
