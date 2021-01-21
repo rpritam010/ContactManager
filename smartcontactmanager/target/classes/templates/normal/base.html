@@ -27,6 +27,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
+		
+		<!-- JQuery JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -81,7 +84,7 @@
 	
 		<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
 
-		<a id="home-link" href="#" th:href="@{/user/index}"class="item"><i class="fas fa-home"></i> Home</a> 
+		<a id="home-link" href="#" th:href="@{/user/index}"class="item active"><i class="fas fa-home"></i> Home</a> 
 		
 		<a id="contact-link" href="#" th:href="@{/user/show-contacts/0}" class="item"><i class="fas fa-id-card-alt"></i> View Contact</a> 
 		
@@ -89,7 +92,7 @@
 		
 		<a id="profile-link" href="#" th:href="@{/user/profile}" class="item"><i class="fas fa-user-alt"></i> Your Profile</a> 
 		
-		<a id="setting-link" href="#" class="item"><i class="fas fa-cogs"></i> Settings</a> 
+		<a id="settings-link" href="#" th:href="@{/user/settings}" class="item"><i class="fas fa-cogs"></i> Settings</a> 
 		
 		<a href="#" th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i> Logout</a>
 		

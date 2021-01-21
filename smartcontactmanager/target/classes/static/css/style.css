@@ -3,7 +3,7 @@ body {
 }
 
 .bg.primary {
-	background: #006400 !important;
+	background: #009688 !important;
 }
 
 .banner {
@@ -118,4 +118,20 @@ body {
 	padding: 10px;
 	border: 1px solid gray;
 	display: none;
+}
+
+
+.active{
+	background: #009688 !important;
+	color: white !important;
+}
+
+/* Search CSS */
+.search-result{
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	display: none;
+	
 }

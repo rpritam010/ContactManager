@@ -15,6 +15,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,9 @@ public class UserController {
 
 	@Autowired
 	private ContactRepository contactRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	// Method for adding common data to response
 
@@ -275,4 +279,24 @@ public class UserController {
 
 		return "normal/profile";
 	}
-}
+	
+	@GetMapping("/settings")
+	public String openSettings(Model model) {
+		model.addAttribute("title","Settings - Smart Contact Manager");
+		return "normal/settings";
+	}
+	
+	@PostMapping("/changepassword")
+	public String changePassword(@RequestParam("oldPassword") String oldPassword,@RequestParam("newPassword") String newPassword,Principal principal,HttpSession session) {
+		User user = userRepository.getUserByUserName(principal.getName());
+		
+		if(passwordEncoder.matches(oldPassword, user.getPassword())) {
+			user.setPassword(passwordEncoder.encode(newPassword));
+			userRepository.save(user);
+			session.setAttribute("message", new Message("Password Successfully Changed !!", "success"));
+		}else {
+			session.setAttribute("message", new Message("Please Enter Correct Old Password", "danger"));
+			return "redirect:/user/settings";
+		}
+		return "redirect:/user/index";
+	}}
